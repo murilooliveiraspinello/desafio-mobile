@@ -10,3 +10,6 @@ https://github.com/murilooliveiraspinello/desafio-mobile/blob/master/DESAFIO_MOB
 
 # Iniciante?
 Acesse o link para instalação: https://facebook.github.io/react-native/docs/getting-started.html
+
+
+OBS: Projeto cabível de liberação para IOS, necessitando apenas de realizar as configurações na abertura do projeto no XCODE
