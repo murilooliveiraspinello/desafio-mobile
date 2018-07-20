@@ -1,6 +1,9 @@
 # desafio-mobile React Native (Android & IOS)
 Projeto de apresentação do nível de desenvolvimento, no prazo de 2 dias, em React Native
 
+# Video Explicativo
+https://youtu.be/pzY3yscUY8I
+
 # PDF do desafio
 acesse: https://github.com/murilooliveiraspinello/desafio-mobile/blob/master/Desafio-Mobile.pdf
 
