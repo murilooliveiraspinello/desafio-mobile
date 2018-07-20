@@ -40,7 +40,7 @@ class AppInfo extends Component {
             content={
                 <View style={{ flex: 1, backgroundColor: backgroundColorStatus }}>
                     <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }} contentContainerStyle={styleAll.scrolCenter}>
-                        <TouchableOpacity onPress={() => this.openPageProject()}>
+                        <TouchableOpacity onPress={() => {}}>
                             <ImageBackground resizeMode="contain" source={require("../ic_launcher.png")} style={{ height: 100 }} />
                         </TouchableOpacity>
 
@@ -50,7 +50,7 @@ class AppInfo extends Component {
                         </View>
 
 
-                        <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal:30 }}>
+                        <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 30 }}>
 
                             {this.renderLink('whatsapp', 'https://bit.ly/2JwCg1g')}
                             {this.renderLink('linkedin', 'https://www.linkedin.com/in/murilo-oliveira-spinello/')}
@@ -59,11 +59,22 @@ class AppInfo extends Component {
 
                         </View>
 
-                        <TouchableOpacity onPress={() => Actions.pop()}
-                            style={[styleAll.buttonNormal, { marginTop: 20, justifyContent: "center" }]}>
-                            <Icon name={'chevron-left'} style={[styleAll.buttonTextNormal, { marginRight: 5, color: backgroundColorStatus }]} />
-                            <Text style={[styleAll.buttonTextNormal, { color: backgroundColorStatus }]}>Voltar</Text>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 30 }}>
+
+                            <TouchableOpacity onPress={() => Actions.pop()}
+                                style={[styleAll.buttonNormal, { marginTop: 20, justifyContent: "center" }]}>
+                                <Icon name={'chevron-left'} style={[styleAll.buttonTextNormal, { marginRight: 5, color: backgroundColorStatus }]} />
+                                <Text style={[styleAll.buttonTextNormal, { color: backgroundColorStatus }]}>Voltar</Text>
+                            </TouchableOpacity>
+
+
+                            <TouchableOpacity onPress={() => Linking.openURL('https://github.com/murilooliveiraspinello/desafio-mobile')}
+                                style={[styleAll.buttonNormal, { marginTop: 20, justifyContent: "center" }]}>
+                                <Icon name={'github'} style={[styleAll.buttonTextNormal, { marginRight: 5, color: backgroundColorStatus }]} />
+                                <Text style={[styleAll.buttonTextNormal, { color: backgroundColorStatus }]}>Repositório</Text>
+                            </TouchableOpacity>
+
+                        </View> 
 
                     </ScrollView>
                 </View>
