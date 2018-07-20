@@ -16,7 +16,6 @@ export const indicatorColor = "black";
 
 export const alertError = (title, msg) => Alert.alert(title, msg)
 
-
 export const _checkBoxCustom = (list, calback) => <View style={[{ marginBottom: 20, paddingLeft: 26 }]}>
   {list.map((line, key) => <TouchableOpacity key={key}
     style={[{ flexDirection: "row", justifyContent: 'center', borderBottomColor: colorPlaceholder, borderBottomWidth: 0.5 }, { padding: 10 }]}
@@ -26,18 +25,10 @@ export const _checkBoxCustom = (list, calback) => <View style={[{ marginBottom: 
   </TouchableOpacity>)}
 </View>
 
-export const _setUser = async comanda => {
-  await AsyncStorage.setItem("comanda", comanda);
-};
-
-export const _desconnect = async () => {
-  await AsyncStorage.removeItem("comanda");
-};
-
 export const getCardList = async call => {
   //await AsyncStorage.clear()
   let cardList = await AsyncStorage.getItem("cardList");
-  
+
 
   if (!cardList) call(new Array());
   else {
@@ -59,15 +50,15 @@ export const getFormByImdbID = async (imdbID, dintHave, have) => {
     console.log("cardList", cardList)
 
     let had = false
-    cardList.map((line, key) => { 
-        if(line.imdbID==imdbID){
-          have(line)
-          had = true
-        }
+    cardList.map((line, key) => {
+      if (line.imdbID == imdbID) {
+        have(line)
+        had = true
+      }
     })
-  
-    if(!had)
-    dintHave();
+
+    if (!had)
+      dintHave();
   }
 };
 
@@ -83,70 +74,8 @@ export const addCardList = async (imdbID, form, call) => {
   call();
 };
 
-export const checkCardList = async (n_cartao, call) => {
-  let cardList = await AsyncStorage.getItem("cardList");
-
-  cardList = JSON.parse(cardList);
-  if (cardList.length == null) {
-    cardList = [cardList];
-  }
-
-  cardList.map((line, key) => {
-    cardList[key].checked = false;
-    if (cardList[key].n_cartao == n_cartao) cardList[key].checked = true;
-  });
-
-  await AsyncStorage.setItem("cardList", JSON.stringify(cardList));
-  call();
-};
-
-export const dellFromCardList = async (n_cartao, call) => {
-  let cardList = await AsyncStorage.getItem("cardList");
-
-  cardList = JSON.parse(cardList);
-  if (cardList.length == null) {
-    cardList = [cardList];
-  }
-
-  let array = new Array();
-  cardList.map((line, key) => {
-    if (cardList[key].n_cartao != n_cartao) array = cardList[key];
-  });
-
-  await AsyncStorage.setItem("cardList", JSON.stringify(array));
-  call();
-};
-
-
-export const _getUser = async (calback, didnt = null) => {
-  const comanda = await AsyncStorage.getItem("comanda");
-
-  if (comanda) {
-    _setTempAccess(comanda);
-    calback(comanda);
-  } else if (didnt) didnt();
-};
-
 export const showErroInput = text => {
   return <Text style={styleAll.warningInputError}>{text}</Text>;
-};
-
-export const showInputEditedTitle = (variable, text, align = "left") => {
-  if (variable != null && variable.length > 0)
-    return (
-      <Text
-        style={[
-          {
-            textAlign: align,
-            paddingVertical: 0,
-            color: "white",
-            fontWeight: "bold"
-          }
-        ]}
-      >
-        {text}
-      </Text>
-    );
 };
 
 export const _initREST = (url, data, callResult, isLoading, messageError) => {

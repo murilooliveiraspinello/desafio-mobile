@@ -4,7 +4,6 @@ import {
     Linking,
     ScrollView,
     UIManager,
-    LayoutAnimation,
     Platform,
     TouchableOpacity, Dimensions,
     Text
@@ -12,8 +11,6 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 import ParentView from "../ParentView";
 import { styleAll, backgroundColorStatus, colorPlaceholder, indicatorColor, backgroundFooter, alertError, urlBase, apikey, _initREST, getFormByImdbID, addCardList } from "../../FixVars";
-import ModalSearch from "./ModalSearch";
-
 import { createImageProgress } from 'react-native-image-progress';
 import FastImage from 'react-native-fast-image';
 import { Actions } from "../../node_modules/react-native-router-flux";
@@ -89,13 +86,13 @@ class TitleSelected extends Component {
     renderTitleSelected() {
         return <View style={{ flex: 1 }}>
             <View style={[styleAll.card, { marginBottom: 0 }]}>
-                <View style={{ flex: 1, flexDirection: (this.state.imageZoom)?"column": "row", marginBottom: 10 }}>
+                <View style={{ flex: 1, flexDirection: (this.state.imageZoom) ? "column" : "row", marginBottom: 10 }}>
 
-                    <TouchableOpacity onPress={() => this.setState({imageZoom:(this.state.imageZoom)?false:true})}>
-                        <Image source={{ uri: this.state.Poster }} resizeMode="cover" style={{ width: (this.state.imageZoom)?('100%'):90, height:(this.state.imageZoom)?(width): 90 , backgroundColor: backgroundFooter}} />
+                    <TouchableOpacity onPress={() => this.setState({ imageZoom: (this.state.imageZoom) ? false : true })}>
+                        <Image source={{ uri: this.state.Poster }} resizeMode="cover" style={{ width: (this.state.imageZoom) ? ('100%') : 90, height: (this.state.imageZoom) ? (width) : 90, backgroundColor: backgroundFooter }} />
                     </TouchableOpacity>
 
-                    <View style={{ flex: 1, marginLeft: (this.state.imageZoom)?0:6, marginTop: (this.state.imageZoom)?10:0 }}>
+                    <View style={{ flex: 1, marginLeft: (this.state.imageZoom) ? 0 : 6, marginTop: (this.state.imageZoom) ? 10 : 0 }}>
 
                         {this.renderLineTitle('Nome', this.state.Title, 10)}
 
@@ -116,7 +113,7 @@ class TitleSelected extends Component {
                     {this.state.imdbVotes && this.renderLineTitle('Votos', this.state.imdbVotes)}
                 </View>
             </View>
-            <View style={[styleAll.card, {marginBottom:0}]}>
+            <View style={[styleAll.card, { marginBottom: 0 }]}>
                 {this.state.Director && this.renderLineTitle('Diretor', this.state.Director, 16)}
                 {this.state.Production && this.renderLineTitle('Produção', this.state.Production, 16)}
                 {this.state.Awards && this.renderLineTitle('Prêmios', this.state.Awards, 16)}
@@ -126,7 +123,6 @@ class TitleSelected extends Component {
                 {this.state.Website && <TouchableOpacity onPress={() => Linking.openURL(this.state.Website)} >
                     {this.renderLineTitle('Website (link)', this.state.Website, 0)}
                 </TouchableOpacity>}
-
 
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between" }}>
                     <TouchableOpacity style={[styleAll.buttonNormal, { alignSelf: 'flex-end', elevation: 3, marginTop: 16, backgroundColor: 'white' }]}

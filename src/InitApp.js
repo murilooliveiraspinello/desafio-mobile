@@ -7,7 +7,6 @@ import {
     ImageBackground, Text
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import ParentView from "./ParentView";
 import { styleAll, backgroundColorStatus } from "../FixVars";
 import { Actions } from "../node_modules/react-native-router-flux";
 
@@ -41,7 +40,6 @@ class InitApp extends Component {
                     <Text style={[styleAll.pageTitle, { color: 'white' }]}>{this.props.title}</Text>
                     <Text style={[styleAll.textNormal, { color: 'white', alignSelf: 'center' }]}>{this.props.subtitle}</Text>
                 </View>
-
 
                 <TouchableOpacity onPress={() => Actions.reset('BaseApp', { title: 'Pesquisar' })}
                     style={[styleAll.buttonNormal, { marginTop: 20, justifyContent: "center" }]}>

@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import { styleAll, backgroundColorStatus, colorPlaceholder, _checkBoxCustom, showErroInput, alertError, _initREST, urlBase, apikey, backgroundFooter } from "../../FixVars";
+import { styleAll, backgroundColorStatus, colorPlaceholder, _checkBoxCustom, showErroInput, alertError, backgroundFooter } from "../../FixVars";
 import ProgressBar from "../../ProgressBar";
 
 class ModalSearch extends Component {
@@ -26,10 +26,8 @@ class ModalSearch extends Component {
     initSerchAPI() {
         if (this.state.titulo == '') alertError('Validação', "Título necessário para pesquisar")
         else {
- 
-            this.props.initSerchAPI(this.state.titulo.trim(), this.state.ano.trim(),  this.state.tipo)
- 
-        }
+             this.props.initSerchAPI(this.state.titulo.trim(), this.state.ano.trim(),  this.state.tipo)
+         }
     }
 
     componentDidMount(){
@@ -90,7 +88,6 @@ class ModalSearch extends Component {
 
         {this.state.isLoading && <ProgressBar/>}
     </View>
-
 }
 
 export default ModalSearch;

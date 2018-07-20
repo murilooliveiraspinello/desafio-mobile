@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import {
     View,
-    Linking,
     ScrollView,
     UIManager,
     LayoutAnimation,
     Platform,
-    TouchableOpacity, Dimensions,
+    TouchableOpacity,
     Text
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -18,9 +17,6 @@ import { createImageProgress } from 'react-native-image-progress';
 import FastImage from 'react-native-fast-image';
 const Image = createImageProgress(FastImage);
 import { Actions } from "../../node_modules/react-native-router-flux";
-
-
-const { height, width } = Dimensions.get('window');
 
 class BaseApp extends Component {
     constructor(props) {
@@ -59,7 +55,7 @@ class BaseApp extends Component {
     }
 
     renderLine(key, line, onpress) {
-        return <TouchableOpacity key={key} style={[styleAll.card, { marginBottom: 10, paddingHorizontal:10 }]} onPress={() => onpress()}>
+        return <TouchableOpacity key={key} style={[styleAll.card, { marginBottom: 10, paddingHorizontal: 10 }]} onPress={() => onpress()}>
 
             <View style={{ flex: 1, flexDirection: "row" }}>
                 <Image source={{ uri: line.Poster }} resizeMode="cover" style={{ width: 100, backgroundColor: backgroundFooter, height: 100 }} />
@@ -113,20 +109,15 @@ class BaseApp extends Component {
                     <Icon name={"bookmark"} style={[styleAll.buttonTextNormal, { marginHorizontal: 5, color: "white" }]} />
                 </TouchableOpacity>
             </View>
-
-
-
         </View>
     }
 
     initSerchAPI(titulo = this.state.titulo, y = this.state.y, type = this.state.type) {
 
-        console.log(type)
         if (y) y = `&y=${y}`; else y = ``
         if (type) type = `&type=${type}`; else type = ``
 
         const url = `${urlBase}?apikey=${apikey}&s=${titulo}&page=${this.state.page}${y}${type}`
-
 
         const data = {
             method: "GET",
@@ -143,11 +134,10 @@ class BaseApp extends Component {
         },
             (isLoading) => this.setState({ isLoading }),
             (iconTitle, title, content) => alertError('Busca', 'Não foi possível encontrar resultados, verifique sua conexão ou se preencheu os dados corretamente'))
-
     }
 
     pagination() {
-        return <View style={{ padding: 16, marginTop:10, borderTopColor: colorPlaceholder, borderTopWidth: 0.5, paddingVertical: 10, backgroundColor: 'white', justifyContent: "space-between", flexDirection: "row" }}>
+        return <View style={{ padding: 16, marginTop: 10, borderTopColor: colorPlaceholder, borderTopWidth: 0.5, paddingVertical: 10, backgroundColor: 'white', justifyContent: "space-between", flexDirection: "row" }}>
 
             {this.state.page > 1 &&
                 <TouchableOpacity onPress={() => this.setState({ page: this.state.page - 1 }, () => this.initSerchAPI())}
@@ -170,7 +160,6 @@ class BaseApp extends Component {
                 </Text>
                     <Icon name={"chevron-right"} style={[styleAll.buttonTextNormal, { marginLeft: 5, color: backgroundColorStatus }]} />
                 </TouchableOpacity>}
-
         </View>
     }
 

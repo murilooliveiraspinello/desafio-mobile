@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { _desconnect, backgroundColorStatus, _infoUser, styleAll, urlBase } from './FixVars';
+import { backgroundColorStatus, _infoUser, styleAll } from './FixVars';
 
 class ControlPanel extends Component {
 

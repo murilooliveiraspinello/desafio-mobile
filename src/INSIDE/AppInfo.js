@@ -13,8 +13,6 @@ import ParentView from "../ParentView";
 import { styleAll, backgroundColorStatus, } from "../../FixVars";
 import { Actions } from "../../node_modules/react-native-router-flux";
 
-
-
 class AppInfo extends Component {
     constructor(props) {
         super(props);
@@ -40,7 +38,7 @@ class AppInfo extends Component {
             content={
                 <View style={{ flex: 1, backgroundColor: backgroundColorStatus }}>
                     <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }} contentContainerStyle={styleAll.scrolCenter}>
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => { }}>
                             <ImageBackground resizeMode="contain" source={require("../ic_launcher.png")} style={{ height: 100 }} />
                         </TouchableOpacity>
 
@@ -48,8 +46,7 @@ class AppInfo extends Component {
                             <Text style={[styleAll.pageTitle, { color: 'white' }]}>{this.props.title}</Text>
                             <Text style={[styleAll.textNormal, { color: 'white', alignSelf: 'center', textAlign: "center", flex: 1 }]}>{this.props.subtitle}</Text>
                         </View>
-
-
+                        
                         <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 30 }}>
 
                             {this.renderLink('whatsapp', 'https://bit.ly/2JwCg1g')}
@@ -74,7 +71,7 @@ class AppInfo extends Component {
                                 <Text style={[styleAll.buttonTextNormal, { color: backgroundColorStatus }]}>Repositório</Text>
                             </TouchableOpacity>
 
-                        </View> 
+                        </View>
 
                     </ScrollView>
                 </View>

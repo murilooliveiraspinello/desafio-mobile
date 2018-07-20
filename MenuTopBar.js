@@ -4,13 +4,11 @@ import {
     View,
     Keyboard,
     TouchableOpacity,
-    ImageBackground,
-    TextInput
+    ImageBackground
 } from "react-native";
 import {
     backgroundColorStatus,
     styleAll,
-    colorPlaceholder,
     fontFamily
 } from "./FixVars";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -35,15 +33,8 @@ class MenuTopBar extends Component {
     }
 
     _renderBtnMenu = (icon, onpress) => (
-        <TouchableOpacity
-            style={{ padding: 20, flexDirection: "row" }}
-            onPress={() => {
-                onpress();
-            }}
-        >
+        <TouchableOpacity style={{ padding: 20, flexDirection: "row" }} onPress={() => { onpress(); }}>
             <Icon name={icon} style={[styleAll.buttonTextNormal, { color: backgroundColorStatus }]} />
-
-
         </TouchableOpacity>
     );
 
@@ -52,8 +43,7 @@ class MenuTopBar extends Component {
             <View style={{}}>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", elevation: 3, marginBottom: 1, backgroundColor: 'white' }}>
 
-
-                    {this.props.backBtn && <TouchableOpacity style={{ padding: 20, paddingRight: 0, marginRight:-10, flexDirection: "row" }}
+                    {this.props.backBtn && <TouchableOpacity style={{ padding: 20, paddingRight: 0, marginRight: -10, flexDirection: "row" }}
                         onPress={() => Actions.pop()}>
                         <Icon name={'chevron-left'} style={[styleAll.buttonTextNormal, { color: backgroundColorStatus }]} />
                     </TouchableOpacity>}
