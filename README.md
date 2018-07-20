@@ -1,4 +1,4 @@
-# desafio-mobile
+# desafio-mobile React Native (Android & IOS)
 Projeto de apresentação do nível de desenvolvimento, no prazo de 2 dias, em React Native
 
 # PDF do desafio
